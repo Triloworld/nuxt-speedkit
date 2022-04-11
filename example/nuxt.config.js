@@ -1,13 +1,14 @@
 import { resolve } from 'path';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import nuxtBabelPresetApp from '@nuxt/babel-preset-app';
+import { defineNuxtConfig } from '@nuxt/bridge';
 import pkg from '../package.json';
 
 import * as postcssFunctions from './postcss/functions';
 
-const isDev = process.env.NODE_ENV === 'development'; ;
+const isDev = process.env.NODE_ENV === 'development';
 
-export default {
+export default defineNuxtConfig({
   dev: isDev,
   target: hasTargetStatic() ? 'static' : null,
   modern: isDev ? false : 'client',
@@ -342,7 +343,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   }
-};
+});
 
 function getBasePath () {
   return process.env.npm_config_base || process.env.BASE_PATH || '/';

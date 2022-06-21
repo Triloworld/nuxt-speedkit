@@ -37,15 +37,16 @@
   },
   "dependencies": {
     "@nuxt/image": "0.6.2",
-    "axios": "0.27.2",
     "bowser": "2.11.0",
     "browserslist-useragent-regexp": "3.0.2",
     "buffer-image-size": "0.6.4",
     "deepmerge": "4.2.2",
     "defu": "6.0.0",
     "dynamic-class-list": "2.0.1",
+    "ohmyfetch": "^0.4.18",
     "serialize-to-js": "3.1.2",
     "sort-css-media-queries": "2.0.4",
+    "ufo": "^0.8.4",
     "vue-lazy-hydration": "2.0.0-beta.4"
   },
   "devDependencies": {

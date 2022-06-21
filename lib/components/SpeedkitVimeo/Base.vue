@@ -105,22 +105,31 @@ export default {
   fetchKey () {
     return `vimeo-${toHashHex(this.videoId)}`;
   },
-
   async fetch () {
-    const { withQuery } = await import('ufo');
-    const { get } = await import('axios');
-    try {
-      const url = withQuery('https://vimeo.com/api/oembed.json', {
-        url: this.url,
-        width: 1920,
-        height: 1080
-      });
-      const { data } = await get(url);
-      this.videoData = data;
-    } catch (error) {
-      this.iframeMode = true;
-      this.src = this.playerSrc;
-    }
+    // eslint-disable-next-line no-unused-vars
+    // const { $fetch1 } = require('ohmyfetch');
+    // eslint-disable-next-line no-unused-vars
+    const { $fetch } = (await import('ohmyfetch'));
+
+    // try {
+    //   // const url = withQuery('https://vimeo.com/api/oembed.json', {
+    //   //   url: this.url,
+    //   //   width: 1920,
+    //   //   height: 1080
+    //   // });
+    //   // const { data } = await get(url);
+    const data = await $fetch('https://vimeo.com/api/oembed.json', {
+      url: this.url,
+      width: 1920,
+      height: 1080
+    });
+    debugger;
+    console.log(data);
+    //   this.videoData = data;
+    // } catch (error) {
+    //   this.iframeMode = true;
+    //   this.src = this.playerSrc;
+    // }
   },
 
   head () {
